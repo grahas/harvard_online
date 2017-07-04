@@ -1,0 +1,12 @@
+1.  stdint.h is a header file that defines a bunch of types of exact integers. It allows for maximum valuse. This probly protects from code injection atacks. There are unsinged integers and signed integers. This refers to the positive and negative values. The unsigned have a one more bit than the signed, have a greater maximum value but a smaller range.
+2.  They have a fixed size so they will always run the same on all machines that run them. An int might mean different things to different machines. An stdint means the samething always.
+3.  A byte is a 1 byte. A DWORD is 4 bytes. A LONG is 4 bytes. A WORD is 2 bytes.
+4.  424d
+5.  bfSize is the size in bytes of the bitmap file. biSize is the number of bytes required.
+6.  The bitmap is a topdown and origin is the upper-left corner.
+7.  biBitCount
+8.  The file name might have invalid charachters. Maybe computer is out of space or lacks permisions.
+9.  RGB tripple is only one byte, thus 1.
+10. 1
+11. Skips over padding
+12. moves the file pointer to the current location.

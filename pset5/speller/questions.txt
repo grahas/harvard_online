@@ -1,0 +1,31 @@
+0.  pneumonoultramicroscopicsilicovolcanoconiosis is the longest word in english standard dictionaries. 
+1.  stands for get resource usage. It gives the statistics on the process sum of resources used by all threads. 
+2.  17
+3.  Passing in the address might solve scope issues. 
+4.  The main function works as follows: Ctype is included, ctype allows for testing and maping characters. 
+sys/resources is for the getrusage function. sys/time alows for the prograrm to measure time processes take. 
+dictionary.h is the file that I'll be working on. It can check for a word in a dictionary, load a dictionary into memory
+count how many words are in a dictionary, and clear the dictionary from memory. The program then clears the definitions for calculate
+and getrusage I think that by undefining it they are doing a good programing process. If the user forgets to specify a dictionary the line 15
+defaults an answer. Calculate is prototyped because it is defined in the bottom of the program. Main begins by error checking the input. 
+Next it creates two variables of type rusage named before and after. Time variables are initialized. Line 36 tells the program to use the specified
+dictionary and if none is provided then it defaults to DICTIONARY. Line 39 calls get resource usage on main process the results are stored in the
+adress of before. Lines 39 and 41 measure the difference in resource useage for line 40. Line 40 calls the load function on the dictionary. The load
+function needs to return a bool value of true confirming it was able to load the dictionary. Next error checking is done to end the program if 
+no dictionary was loaded. Calculate function then access the values stored in memory of procesor time from user taken before and after and stores it in time_load
+Next the program atempts to open the text by checking if a text file was specified. of it wasn't  then text is defaulted to the dictionary.
+Since it is being opened in r mode the file must exist, if it doesn't then the computer will return NULL and subsquent error checking will end the program.
+A line is printed with a deliminating gap. index, misspelling and words are initialized. A word array is initialized to the maximum length of a 
+word + /0. The for loop reads in each charachter into an int. The if condition test the charachter just read in if it is in the alphabet. Is alpha returns true if it is.
+The second part of the condition checks if the apostrophe is not at the begining of the word. The code in the if statement will apend the character 
+to the word and incriment the index. The next if statement checks if the word is longer than the longest word possible. It collects the rest of the characters and 
+ends the word. The else if clause uses the isdidgit to return true if their is a didget. The 2nd else if will evaluate if somthing isnot a charachter
+and is not a number then the word is termiated, counter is incrimented and the resource usage is checked for the misspeled function. 
+The misspeled function takes in a array of chars and returns a boolean value. If the bool is true the word will be printed and the misspellings counter
+incrimented. The index is then reset. The ferror function will return a non zero value if error has occured. If an error does occur the file
+will be closed and unloaded and the program will close. After program finishes writing to a file the number of words is then counted. No 
+parameters are passed in... After that the dictionary is unloaded from memory. Then the benchamrks are printed. If the program gets there
+then the return value is 0. 
+
+5.  fscanf only returns the number of matches but not the actual value. This might be hard to pass into a spell checking function.
+6.  Ensures the functions dont acsidentaly change the value they are pointing at.
