@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <tr>
+        <th>Stocks Owned</th>
+        <th>Shares Owned</th> 
+        <th>Current Price for Stock</th>
+        <th>Sell</th>
+    </tr>
+    {% for row in share %}
+    <tr>
+        <td>{{ row['Symbol'] }}</td>
+        <td>{{ row['SUM(shares)'] }}</td>
+        <td>{{ row['price']['price'] }}</td>
+        <td>
+            <div>
+                <form action="{{ url_for('sell') }}" method="post">
+                    <input type="number" name="amount_of_stocks_to_sell" min="0"/>
+                    <button type="button" class="btn btn-default" type="submit">Sell</button>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    {% endfor %}
+</table>
+{% endblock %}

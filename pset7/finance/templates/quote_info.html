@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('quote_info') }}" method="post">
+        <fieldset>
+            <ul>
+                <li>
+                    <p>
+                        {{ quote_price }} {{ quote_name }} {{quote_symbol }}
+                    </p>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,3 +1,29 @@
 #!/usr/bin/env python3
-
+import sys
+import helpers
+import analyzer
 # TODO
+def tweet():
+    '''Get a persons tweets and scores them'''
+    name = sys.argv[1]
+    tweets = helpers.get_user_timeline(name, 100)
+    if tweets == None:
+        print("not successful")
+        sys.exit
+        return
+    lyzer = analyzer.Analyzer('positive-words.txt', 'negative-words.txt')
+    ones = 0
+    neg_ones = 0
+    nones = 0
+    for tweet in tweets:
+        bleh = lyzer.analyze(tweet)
+        if bleh == 1:
+            ones += 1
+        elif bleh == -1:
+            neg_ones += 1
+        else:
+            nones += 1
+    helpers.chart(ones, neg_ones, nones)
+    print("POS:{} \n NEG:{}\n NEU:{}".format(ones, neg_ones, nones))
+if __name__ == "__main__":
+    tweet()

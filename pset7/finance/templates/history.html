@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('history') }}" method="post">
+
+    </form>
+    <table class='table'>
+        <th>
+             Stocks Owned
+        </th>
+        <th>
+            Shares Owned
+        </th>
+        <th>
+            Current Price for Stock
+        </th>
+        <th>
+            Date
+        </th>
+        {% for row in rows %}
+        <tr>
+            <td>
+                {{ row['Symbol'] }}
+            </td>
+            <td>
+                {{ row['shares'] }}
+            </td>
+            <td>
+                {{ row['Price'] }}
+            </td>
+            <td>
+                {{ row['date'] }}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

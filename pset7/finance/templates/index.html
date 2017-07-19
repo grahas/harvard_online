@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('quote_info') }}" method="post">
+
+    </form>
+    <table class='table'>
+        <th>
+             Stocks Owned
+        </th>
+        <th>
+            Shares Owned
+        </th>
+        <th>
+            Current Price for Stock
+        </th>
+        <th>
+            Total Value for Each Holding
+        </th>
+        <th>
+            Users Cash Balance
+        </th>
+        <th>
+            Grand Total of Cash + Stocks Total Value
+        </th>
+        {% for row in share %}
+        <tr>
+            <td>
+                {{ row['Symbol'] }}
+            </td>
+            <td>
+                {{ row['SUM(shares)'] }}
+            </td>
+            <td>
+                {{ row['price']['price'] }}
+            </td>
+            <td>
+                {{ row['SUM(price)'] * row['SUM(shares)']  }}
+            </td>
+            <td>
+                ${{ cash[0]['cash'] }}
+            </td>
+            <td>
+                {{ total }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

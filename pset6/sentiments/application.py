@@ -1,5 +1,4 @@
 from flask import Flask, redirect, render_template, request, url_for
-
 import helpers
 from analyzer import Analyzer
 
@@ -19,10 +18,18 @@ def search():
 
     # get screen_name's tweets
     tweets = helpers.get_user_timeline(screen_name)
-
+    if tweets == None:
+        return
     # TODO
     positive, negative, neutral = 0.0, 0.0, 100.0
-
+    lyzer = Analyzer('positive-words.txt', 'negative-words.txt')
+    for tweet in tweets:
+        if lyzer.analyze(tweet) == 1:
+            positive += 1
+        elif lyzer.analyze(tweet) == -1:
+            negative += 1
+        else:
+            neutral += 1
     # generate chart
     chart = helpers.chart(positive, negative, neutral)
 
